@@ -132,6 +132,8 @@ def evaluate_model(model, descriptions, photos, tokenizer, max_length):
         actual.append(references)
         predicted.append(yhat.split())
     # calculate BLEU score
+    for i in range(5):
+        print(predicted[i])
     print('BLEU-1: %f' % corpus_bleu(actual, predicted, weights=(1.0, 0, 0, 0)))
     print('BLEU-2: %f' % corpus_bleu(actual, predicted, weights=(0.5, 0.5, 0, 0)))
     print('BLEU-3: %f' % corpus_bleu(actual, predicted, weights=(0.3, 0.3, 0.3, 0)))
@@ -141,7 +143,7 @@ def evaluate_model(model, descriptions, photos, tokenizer, max_length):
 # prepare tokenizer on train set
 
 # load training dataset (6K)
-filename = 'C:/Users/Sireesha Keesara/Downloads/Flickr8k/Flickr8k/Flickr8k_text/Flickr8k.train.txt'
+filename = 'C:/Users/Hiresh/Desktop/UMKC/BDAA/Lab 2/New Code/lab3/lab3/Dataset/flickr8k_captions/train.txt'
 train = load_set(filename)
 print('Dataset: %d' % len(train))
 # descriptions
